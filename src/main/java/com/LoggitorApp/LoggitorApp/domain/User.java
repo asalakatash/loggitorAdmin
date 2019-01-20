@@ -22,7 +22,7 @@ import javax.persistence.*;
 	                @ColumnResult(name="ROLE", type = String.class),
 	             //   @ColumnResult(name="LOGGED IN", type = String.class)
 
-	            }//////
+	            }
 	        )
 	    }
 	)
