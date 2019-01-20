@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import com.LoggitorApp.LoggitorApp.domain.UserRepository;
 
 import com.LoggitorApp.LoggitorApp.domain.Permission;
 import com.LoggitorApp.LoggitorApp.domain.PermissionRepository;
@@ -20,7 +21,7 @@ import com.LoggitorApp.LoggitorApp.domain.User;
 public class LoggitorAppApplication {
 
 	@Autowired 
-    private com.LoggitorApp.LoggitorApp.domain.UserRepository UserRepository ;
+    private UserRepository UserRepository ;
 	
 	@Autowired 
     private RoleRepository Rolerepository;

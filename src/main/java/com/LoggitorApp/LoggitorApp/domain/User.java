@@ -26,11 +26,16 @@ import javax.persistence.*;
 	        )
 	    }
 	)
+ @NamedNativeQuery(name="Users.getUsersOnHP", query="SELECT USER.NAME, USER.PHONE, ROLE.ROLE_NAME"
+ + "FROM USER INNER JOIN "
+ + "((INNER JOIN USER_ROLE ON USER.USERID = USER_ROLE.USER_ID) "
+ + "ON ROLE.ROLEID = USER_ROLE.ROLE_ID",resultSetMapping="UsersOnHPMapping")
 
-@NamedNativeQuery(name="Users.getUsersOnHP", query="SELECT USER.USERNAME, USER.PHONE, ROLE.ROLE_NAME "
-		+ "FROM USER INNER JOIN "
-		+ "((INNER JOIN USER_ROLE ON USER.USERID = USER_ROLE.USER_ID) "
-		+ "ON ROLE.ROLEID = USER_ROLE.ROLE_ID",resultSetMapping="UsersOnHPMapping")
+
+//@NamedNativeQuery(name="Users.getUsersOnHP", query="SELECT USER.USERNAME, USER.PHONE, ROLE.ROLE_NAME "
+//		+ "FROM USER INNER JOIN "
+//		+ "((INNER JOIN USER_ROLE ON USER.USERID = USER_ROLE.USER_ID) "
+//		+ "ON ROLE.ROLEID = USER_ROLE.ROLE_ID",resultSetMapping="UsersOnHPMapping")
 
 public class User {
 	@Id

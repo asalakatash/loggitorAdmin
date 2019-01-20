@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface UserRepository extends CrudRepository <User, Long> {
-	ArrayList<UsersOnHP> getUsersONHP(@Param("UserName") String UserName);
+//	ArrayList<UsersOnHP> getUsersOnHP(@Param("UserName") String UserName);
 
 }
