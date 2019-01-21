@@ -6,16 +6,25 @@ public class UsersOnHP {
 	String UserName;
 	String UserPhone;
 	String RoleName;
+	BigInteger UserId;
 //	String LogedIn;
-	public UsersOnHP(String userName, String userPhone, String roleName) {
+	
+	public UsersOnHP() {
+		
+	}
+	public UsersOnHP( BigInteger userId,String userName, String userPhone, String roleName) {
 		super();
 		UserName = userName;
 		UserPhone = userPhone;
 		RoleName = roleName;
-		//LogedIn = logedIn;
+		UserId = userId;
 	}
-	public UsersOnHP() {
-		
+
+	public BigInteger getUserId() {
+		return UserId;
+	}
+	public void setUserId(BigInteger userId) {
+		UserId = userId;
 	}
 	public String getUserName() {
 		return UserName;

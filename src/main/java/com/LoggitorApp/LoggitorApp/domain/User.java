@@ -11,25 +11,33 @@ import java.util.Set;
 import javax.persistence.*;
 @Entity
 @SqlResultSetMapping(
-		name="UsersOnHPMapping",
+		name="usersOnHPMapping",
 	    classes={
 	        @ConstructorResult(
 	        		targetClass=UsersOnHP.class,
 	            columns={
-		          //  @ColumnResult(name="SEQID", type = BigInteger.class),
-	                @ColumnResult(name="USERNAME", type = String.class),
+		            @ColumnResult(name="USER_ID", type = BigInteger.class),
+	                @ColumnResult(name="USER_NAME", type = String.class),
 	                @ColumnResult(name="PHONE", type = String.class),
-	                @ColumnResult(name="ROLE", type = String.class),
+	                @ColumnResult(name="ROLE_NAME", type = String.class),
 	             //   @ColumnResult(name="LOGGED IN", type = String.class)
 
 	            }
 	        )
 	    }
 	)
- @NamedNativeQuery(name="Users.getUsersOnHP", query="SELECT USER.NAME, USER.PHONE, ROLE.ROLE_NAME"
- + "FROM USER INNER JOIN "
- + "((INNER JOIN USER_ROLE ON USER.USERID = USER_ROLE.USER_ID) "
- + "ON ROLE.ROLEID = USER_ROLE.ROLE_ID",resultSetMapping="UsersOnHPMapping")
+ @NamedNativeQuery(name="User.getUsersOnHP",
+        query="SELECT USER.USER_ID, USER.USER_NAME , USER.PHONE, ROLE.ROLE_NAME" + 
+ 		" FROM USER " + 
+ 		"INNER JOIN USER_ROLE ON USER.USER_ID=USER_ROLE.USER_ID " + 
+ 		"INNER JOIN ROLE ON ROLE.ROLE_ID=USER_ROLE.ROLE_ID",
+ 		resultSetMapping="usersOnHPMapping")
+ 
+// 
+// "SELECT USER.NAME, USER.PHONE, ROLE.ROLE_NAME"
+// + "FROM USER INNER JOIN "
+// + "((INNER JOIN USER_ROLE ON USER.USERID = USER_ROLE.USER_ID) "
+// + "ON ROLE.ROLEID = USER_ROLE.ROLE_ID",resultSetMapping="UsersOnHPMapping")
 
 
 //@NamedNativeQuery(name="Users.getUsersOnHP", query="SELECT USER.USERNAME, USER.PHONE, ROLE.ROLE_NAME "

@@ -14,12 +14,14 @@ import com.LoggitorApp.LoggitorApp.domain.UsersOnHP;
 
 @RestController
 public class UserController {
-//	@Autowired 
-//	private UserRepository repository;
-//
-//	  @RequestMapping("/UsersOnHP/{name}")
-//	  public ArrayList<UsersOnHP> getUsersOnHP(@PathVariable String name) {
-//	    return repository.getUsersOnHP(name);	  }
+	@Autowired 
+	private UserRepository repository;
+
+	  @RequestMapping("/usersonhp")
+	  public ArrayList<UsersOnHP> getUsersOnHP() 
+	  {
+         return repository.getUsersOnHP();	 
+      }
 
 //	@RequestMapping("/users")
 //	public Iterable<User> getUsers() {
