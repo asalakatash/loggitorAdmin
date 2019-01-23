@@ -1,10 +1,5 @@
 package com.LoggitorApp.LoggitorApp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import java.math.BigInteger;
 import java.util.Set;
 
@@ -56,7 +51,7 @@ public class User {
 	private String Password;
 	
     
-    @ManyToMany(cascade = CascadeType.MERGE)
+	 @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE})
     @JoinTable(name = "User_Role", joinColumns = @JoinColumn(name = "User_id", referencedColumnName = "UserId"),
     inverseJoinColumns = @JoinColumn(name = "Role_id", referencedColumnName = "RoleId"))
     private Set<Role> roles;

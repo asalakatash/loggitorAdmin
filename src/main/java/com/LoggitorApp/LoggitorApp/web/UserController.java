@@ -1,6 +1,7 @@
 package com.LoggitorApp.LoggitorApp.web;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,7 @@ public class UserController {
 	private UserRepository repository;
 
 	  @RequestMapping("/usersonhp")
-	  public ArrayList<UsersOnHP> getUsersOnHP() 
+	  public Set<UsersOnHP> getUsersOnHP() 
 	  {
          return repository.getUsersOnHP();	 
       }

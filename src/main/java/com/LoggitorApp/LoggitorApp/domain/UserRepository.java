@@ -1,6 +1,8 @@
 package com.LoggitorApp.LoggitorApp.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,7 +15,7 @@ public interface UserRepository extends CrudRepository <User, Long> {
 //	 		"INNER JOIN USER_ROLE ON USER.USER_ID=USER_ROLE.USER_ID " + 
 //	 		"INNER JOIN ROLE ON ROLE.ROLE_ID=USER_ROLE.ROLE_ID")
 	@Query(nativeQuery=true)
-   ArrayList<UsersOnHP> getUsersOnHP();
+   Set<UsersOnHP> getUsersOnHP();
    //=new ArrayList<UsersOnHP>();
 
 }

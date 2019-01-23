@@ -33,6 +33,10 @@ public class LoggitorAppApplication {
 	@Bean
     CommandLineRunner runner(){
       return args -> {
+    	
+    	  UserRepository.deleteAll();
+    	  Rolerepository.deleteAll();
+    	  
     	  Permission per1 = new Permission("per1");
     	  perRepository.save(per1);
     	  Permission per2 = new Permission("per2");
@@ -76,7 +80,7 @@ public class LoggitorAppApplication {
           UserRepository.save(user2);
           User user3 = new User("tawfek@gmail.com","0528432254","tawfek","pass3",Roles3);
           UserRepository.save(user3);
-      };
+     };
 	}
 
 }

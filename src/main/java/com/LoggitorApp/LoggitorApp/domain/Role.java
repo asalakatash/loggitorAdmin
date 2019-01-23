@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Role {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-	@ManyToMany(cascade = CascadeType.MERGE)
+	 @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE})
     @JoinTable(name = "Role_Permission", joinColumns = @JoinColumn(name = "Role_Id", referencedColumnName = "RoleId"),
     inverseJoinColumns = @JoinColumn(name = "permission_Id", referencedColumnName = "perId"))
     private Set<Permission> Permissions;

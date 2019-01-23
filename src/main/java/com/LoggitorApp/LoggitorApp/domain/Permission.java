@@ -23,7 +23,7 @@ public class Permission {
 	public void setRolesPer(Set<Role> rolesPer) {
 		RolesPer = rolesPer;
 	}
-
+	public Permission() {}
 	public Permission(String per_name, Set<Role> rolesPer) {
 		super();
 		this.per_name = per_name;
